@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname,'./file')));
 app.all('*', function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-	res.header('Access-Control-Allow-Headers', ['Content-Type']);
+	res.header('Access-Control-Allow-Headers', ["Content-Type", "Upgrade", "Origin", "Connection", "Accept-Encoding", "Accept-Language", "Host", "x-requested-with"]);
 	next();
 });
 
@@ -30,6 +30,6 @@ app.post('/api/upload', upload.array('file', 5), (req, res) => {
 })
 
 
-app.listen(20004, () => {
+app.listen(8888, () => {
     console.log('server running!');
 })
