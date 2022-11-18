@@ -30,6 +30,6 @@ app.post('/api/upload', upload.array('file', 5), (req, res) => {
 })
 
 
-app.listen(8888, () => {
+app.listen(process.env.PORT, () => {
     console.log('server running!');
 })
