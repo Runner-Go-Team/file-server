@@ -22,7 +22,10 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage});
+const upload = multer({
+    storage,
+    limits: { fileSize: 1024 * 1024 * 10 }, // 限制上传文件大小为10MB
+});
 
 app.post('/api/upload', upload.array('file', 5), (req, res) => {
     // console.log(req);
